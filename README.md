@@ -13,7 +13,9 @@ cd marketplace
 ```
 
 ### Запуск
+```
 docker-compose up --build
+```
 
 ### Проверка
 Открыть в браузере:
