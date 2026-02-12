@@ -14,7 +14,8 @@ cd marketplace
 
 ### Запуск
 docker-compose up --build
-Проверка
+
+### Проверка
 Открыть в браузере:
 
 http://localhost:8000/health
