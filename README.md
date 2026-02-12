@@ -27,4 +27,6 @@ http://localhost:8000/health
 {"status":"OK"}
 
 ### Остановка
+```
 docker-compose down
+```
