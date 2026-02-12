@@ -1,0 +1,32 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+Person(buyer, "Buyer", "Покупатель")
+Person(seller, "Seller", "Продавец")
+
+System_Boundary(marketplace, "Marketplace") {
+
+    Container(api, "API Gateway", "REST", "Единая точка входа")
+
+    Container(user, "User Service", "Python", "Управление пользователями")
+    Container(catalog, "Catalog Service", "Python", "Управление товарами")
+    Container(order, "Order Service", "Python", "Оформление заказов")
+    Container(payment, "Payment Service", "Python", "Обработка платежей")
+    Container(notification, "Notification Service", "Python", "Уведомления")
+    Container(feed, "Feed Service", "Python", "Персонализированная лента")
+}
+
+Rel(buyer, api, "Использует")
+Rel(seller, api, "Использует")
+
+Rel(api, user, "REST")
+Rel(api, catalog, "REST")
+Rel(api, order, "REST")
+Rel(api, feed, "REST")
+
+Rel(order, payment, "REST")
+
+Rel(order, notification, "События")
+Rel(payment, notification, "События")
+
+@enduml
