@@ -8,12 +8,14 @@ System_Boundary(marketplace, "Marketplace") {
 
     Container(api, "API Gateway", "REST", "Единая точка входа")
 
-    Container(user, "User Service", "Python", "Управление пользователями")
+    Container(user, "User Service", "Python (FastAPI)", "Управление пользователями")
     Container(catalog, "Catalog Service", "Python", "Управление товарами")
     Container(order, "Order Service", "Python", "Оформление заказов")
     Container(payment, "Payment Service", "Python", "Обработка платежей")
     Container(notification, "Notification Service", "Python", "Уведомления")
     Container(feed, "Feed Service", "Python", "Персонализированная лента")
+
+    Container(message_broker, "Message Broker", "RabbitMQ / Kafka", "Асинхронная передача событий")
 }
 
 Rel(buyer, api, "Использует")
@@ -26,7 +28,9 @@ Rel(api, feed, "REST")
 
 Rel(order, payment, "REST")
 
-Rel(order, notification, "События")
-Rel(payment, notification, "События")
+Rel(order, message_broker, "Публикует события")
+Rel(payment, message_broker, "Публикует события")
+
+Rel(notification, message_broker, "Подписан на события")
 
 @enduml
