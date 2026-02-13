@@ -145,3 +145,16 @@ cd marketplace
 ```
 docker-compose up --build
 ```
+
+**4. Проверьте, что сервис работает:**
+
+```
+curl http://localhost:8000/health
+# Должен вернуть {"status":"OK"}
+```
+
+**5. Для остановки сервиса:**
+
+```
+docker-compose down
+```
