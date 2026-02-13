@@ -127,11 +127,11 @@
 
 ## 9. Инструкция запуска проекта
 
-**Команды для запуска:**
+**1. Убедитесь, что установлены Docker и Docker Compose:**
 
 ```bash
-# Собрать и запустить сервис
-docker-compose up --build
+docker --version
+docker-compose --version
 
 # Проверка health-check
 curl http://localhost:8000/health
