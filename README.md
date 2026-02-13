@@ -132,7 +132,16 @@
 ```bash
 docker --version
 docker-compose --version
+```
 
-# Проверка health-check
-curl http://localhost:8000/health
-# Должен вернуть {"status":"OK"}
+**2. Перейдите в корень репозитория:**
+
+```
+cd marketplace
+```
+
+**3. Соберите и запустите сервис:**
+
+```
+docker-compose up --build
+```
