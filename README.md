@@ -18,7 +18,7 @@
 
 ## 2. C4 Container диаграмма
 
-![C4 Container Diagram](docs/c4-container.png)
+![C4 Container Diagram](diagrams/container.png)
 
 **Описание:**  
 
